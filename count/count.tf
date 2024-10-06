@@ -17,6 +17,6 @@ resource "aws_route53_record" "record" {
 
 resource "aws_key_pair" "deployer" {
     key_name = "devops.pem"
-    public_key = file("${path.module}/devops.pem")
+    public_key = file("${path.module}/practice.pub")
 }
 
