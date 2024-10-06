@@ -20,7 +20,7 @@ resource "aws_key_pair" "deployer" {
     public_key = file("${path.module}/devops.pem")
 }
 
-resource "aws_instance" "conditions" {
+resource "aws_instance" "file" {
     
     ami = var.ami_id
     instance_type = "t2.micro"
