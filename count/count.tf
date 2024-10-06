@@ -12,6 +12,6 @@ resource "aws_route53_record" "record" {
     name = "${var.instance_names[count.index]}.hetvik.online"
     type = "A"
     ttl = 1
-    records = aws_instance.conditions[count.index].public_ip
+    records = [aws_instance.conditions[count.index].public_ip]
 }
 
