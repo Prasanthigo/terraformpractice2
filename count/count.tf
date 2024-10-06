@@ -15,3 +15,8 @@ resource "aws_route53_record" "record" {
     records = [aws_instance.conditions[count.index].public_ip]
 }
 
+resource "aws_key_pair" "deployer" {
+    key_name = "devops.pem"
+    public_key = file("${path.module}/devops.pem")
+}
+
