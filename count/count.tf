@@ -17,6 +17,12 @@ resource "aws_route53_record" "record" {
 
 resource "aws_key_pair" "deployer" {
     key_name = "devops.pem"
-    public_key = file("${path.module}/practice.pub")
+    public_key = file("${path.module}/devops.pem")
 }
 
+resource "aws_instance" "conditions" {
+    
+    ami = var.ami_id
+    instance_type = "t2.micro"
+    key_name = aws_key_pair.deployer.key_name
+}
