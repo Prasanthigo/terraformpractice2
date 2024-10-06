@@ -5,6 +5,7 @@ resource "aws_instance" "conditions" {
     tags = {
         Name = var.instance_names[count.index]
     }
+}
 resource "aws_route53_record" "record" {
     count = 7
     zone_id = var.zone_id
@@ -14,4 +15,3 @@ resource "aws_route53_record" "record" {
     records = aws_instance.conditions[count.index].public_ip
 }
 
-}
