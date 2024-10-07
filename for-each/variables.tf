@@ -15,3 +15,7 @@ variable "instances" {
     }
 
 }
+
+variable "zone_id" {
+    default = "Z0220614ND8PFSAQRQUP"
+}
