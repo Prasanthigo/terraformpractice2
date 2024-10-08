@@ -10,7 +10,7 @@ terraform {
     bucket = "roboshop1-bucket"
     key = "foreach"
     region = "us-east-1"
-    dynamodb_table = "roboshop_locking"
+    dynamodb_table = "roboshop-locking"
   }
 }
  provider "aws" {
