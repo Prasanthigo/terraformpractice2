@@ -19,3 +19,5 @@ resource "aws_route53_record" "www" {
     records = [each.key == "Payment" ? each.value.public_ip : each.value.private_ip]
 }
 
+
+
