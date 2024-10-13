@@ -10,5 +10,5 @@ variable "enable_dns_hostnames" {
  }
 
 variable "tags"{
-    
+    type = map
 }
