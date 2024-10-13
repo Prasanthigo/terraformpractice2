@@ -6,7 +6,7 @@ terraform {
         }
     }
     backend "s3" {
-        bucket = "remote1-backend "
+        bucket = "remote1-backend"
         key = "vpc-demo"
         region = "us-east-1"
         dynamodb_table= "roboshop-locking"
