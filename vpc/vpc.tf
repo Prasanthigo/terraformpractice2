@@ -56,3 +56,47 @@ resource "aws_route_table_association" "private" {
     subnet_id = aws_subnet.private.id
     route_table_id = aws_route_table.private.id
 }
+
+resource "aws_security_group" "allow_http_ssh" {
+    name = "allow_tls"
+    description = "allow tls inbound traffic"
+    vpc_id = aws_vpc.main.id
+    
+    ingress {
+        description = "HTTPS from VPC"
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+   ingress {
+        description = "SSH from my PC"
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = ["35.146.56.64/32"]
+    }
+    
+
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    tags = {
+        Name = "allow_http_ssh.allow_http_ssh"
+    }
+
+}
+
+resource "aws_instance" "ec2" {
+    ami = "ami-0b4f379183e5706b9"
+    instance_type = "t2.micro"
+    subnet_id = aws_subnet.public.id
+    security_groups = [aws_security_group.allow_http_ssh.name]
+    tags = {
+        Name = "web"
+    }
+
+}
