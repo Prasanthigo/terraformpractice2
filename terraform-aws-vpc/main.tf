@@ -18,7 +18,7 @@ resource "aws_subnet" "public" {
     tags = merge(
         var.common_tags,
         {
-            Name = aws.public_subnet_names[count.index]
+            Name = var.public_subnet_names[count.index]
         }
     )
     
