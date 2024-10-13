@@ -15,5 +15,12 @@ resource "aws_subnet" "public" {
     vpc_id = aws_vpc.main.id
     cidr_block = var.public_subnet_cidr[count.index]
     availability_zone = var.azs[count.index]
-    tags = var.public_subnet_names[count.index]
+    tags = merge(
+        var.common_tags,
+        {
+            Name = aws.public_subnet_names[count.index]
+        }
+    )
+    
+
 }

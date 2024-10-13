@@ -14,10 +14,10 @@ variable "enable_dns_hostnames" {
     default = {}
  }
 
-# variable "common_tags"{
-#     default = {}
-#     type = map
-# }
+variable "common_tags"{
+    default = {}
+    type = map
+}
 
 # variable "vpc_tags"{
 #     default = {}
