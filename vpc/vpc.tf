@@ -58,7 +58,7 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_security_group" "allow_http_ssh" {
-    name = "allow_tls"
+    name = "allow_http_ssh"
     description = "allow tls inbound traffic"
     vpc_id = aws_vpc.main.id
     
