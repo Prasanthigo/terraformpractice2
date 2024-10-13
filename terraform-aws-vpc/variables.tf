@@ -36,9 +36,11 @@ variable "igw_tags" {
   }
 
   variable "azs" {
+    type = list(string)
 
   }
 
   variable "public_subnet_names" {
+    type = list(string)
 
   }
