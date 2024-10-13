@@ -22,3 +22,27 @@ resource "aws_subnet" "private" {
         Name = "Roboshop-private"
     }
 }
+resource "aws_internet_gateway" "igw" {
+    vpc_id = aws_vpc.main.id
+    tags = {
+        Name = "Roboshop"
+    }
+}
+resource "aws_route_table" "public" {
+    vpc_id = aws_vpc.main.id
+    route {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.igw.id
+    }
+    tags = {
+        Name = "Public-RT"
+    }
+}
+
+resource "aws_route_table" "private" {
+    vpc_id = aws_vpc.main.id
+    
+    tags = {
+        Name = "Private-RT"
+    }
+}
