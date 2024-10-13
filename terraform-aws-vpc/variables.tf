@@ -27,3 +27,18 @@ variable "igw_tags" {
     type = map
     default = {}
  }
+  variable "public_subnet_cidr" {
+
+  }
+
+  variable "public_subnet_tags" {
+
+  }
+
+  variable "azs" {
+
+  }
+
+  variable "public_subnet_names" {
+
+  }
