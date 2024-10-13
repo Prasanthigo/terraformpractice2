@@ -7,12 +7,7 @@ module "this" {
     public_subnet_cidr = var.public_subnet_cidr
     azs = var.azs
     public_subnet_names = var.public_subnet_names
-    public_subnet_tags = merge(
-        var.common_tags,
-        {
-            Name = var.public_subnet_names[count.index]
-        }
-    )
+    
         
 
 
