@@ -11,5 +11,6 @@ module "this" {
         {
             Name = var.public_subnet_names[count.index]
         }
+    )
 
 }
