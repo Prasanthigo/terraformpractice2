@@ -1,3 +1,3 @@
 module "this" {
-    source = ../terraform-aws-vpc
+    source = "../terraform-aws-vpc"
 }
