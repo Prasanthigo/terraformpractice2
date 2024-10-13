@@ -4,3 +4,8 @@ resource "aws_vpc" "main" {
     enable_dns_support = var.enable_dns_support
     tags = var.tags
 }
+
+resource "aws_internet_gateway" "igw" {
+    vpc_id = aws_vpc.main.id
+    tags = var.igw_tags
+}

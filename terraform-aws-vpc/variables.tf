@@ -23,3 +23,7 @@ variable "enable_dns_hostnames" {
 #     default = {}
 #     type = map
 # }
+variable "igw_tags" {
+    type = map
+    default = {}
+ }

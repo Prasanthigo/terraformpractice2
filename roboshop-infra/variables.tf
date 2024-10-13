@@ -16,3 +16,9 @@ variable "vpc_tags" {
         
     }
 }
+
+variable "internet_gateway_tags" {
+    default = {
+        Name = "roboshop"
+    }
+}
