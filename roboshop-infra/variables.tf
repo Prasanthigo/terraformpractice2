@@ -32,7 +32,5 @@ variable "azs" {
 }
  
 variable "public_subnet_names" {
-    default = ["roboshop-public-1a","roboshop-public-1b"]
-    
-
+    default = ["roboshop-public-1a", "roboshop-public-1b"]
 }
