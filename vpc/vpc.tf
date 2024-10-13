@@ -93,8 +93,10 @@ resource "aws_security_group" "allow_http_ssh" {
 resource "aws_instance" "ec2" {
     ami = "ami-0b4f379183e5706b9"
     instance_type = "t2.micro"
+    vpc_id = aws_vpc.main.id
     subnet_id = aws_subnet.public.id
-    security_groups = [aws_security_group.allow_http_ssh.name]
+    #security_groups = [aws_security_group.allow_http_ssh.name]
+    vpc_security_group_ids = [aws_security_group.allow_http_ssh.id]
     associate_public_ip_address = true
     tags = {
         Name = "web"
