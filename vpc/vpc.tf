@@ -95,6 +95,7 @@ resource "aws_instance" "ec2" {
     instance_type = "t2.micro"
     subnet_id = aws_subnet.public.id
     security_groups = [aws_security_group.allow_http_ssh.name]
+    associate_public_ip_address = true
     tags = {
         Name = "web"
     }
