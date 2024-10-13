@@ -9,6 +9,17 @@ variable "enable_dns_hostnames" {
     default = true
  }
 
-variable "tags"{
+ variable "tags" {
     type = map
-}
+    default = {}
+ }
+
+# variable "common_tags"{
+#     default = {}
+#     type = map
+# }
+
+# variable "vpc_tags"{
+#     default = {}
+#     type = map
+# }
