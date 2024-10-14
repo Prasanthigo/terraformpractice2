@@ -24,3 +24,17 @@ resource "aws_subnet" "public" {
     
 
 }
+
+resource "aws_subnet" "private" {
+    count = length(var.private_subnet_cidr)
+    vpc_id = aws_vpc.main.id
+    cidr_block = var.private_subnet_cidr[count.index]
+    availability_zone = var.azs[count.index]
+    tags = merge(
+        var.common_tags,
+        {
+            Name = var.private_subnet_names[count.index]
+        }
+    )
+
+}

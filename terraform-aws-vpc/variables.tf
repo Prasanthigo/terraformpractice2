@@ -44,3 +44,12 @@ variable "igw_tags" {
     type = list(string)
 
   }
+
+  variable "private_subnet_cidr" {
+
+  }
+
+  variable "private_subnet_names" {
+    
+  }
+  

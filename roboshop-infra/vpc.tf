@@ -7,6 +7,8 @@ module "this" {
     public_subnet_cidr = var.public_subnet_cidr
     azs = var.azs
     public_subnet_names = var.public_subnet_names
+    private_subnet_cidr = var.private_subnet_cidr
+    private_subnet_names = var.private_subnet_names
 }
     
         
