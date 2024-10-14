@@ -50,6 +50,17 @@ variable "igw_tags" {
   }
 
   variable "private_subnet_names" {
-    
+
   }
+
+  variable "database_subnet_cidr" {
+
+  }
+
+  variable "database_subnet_names" {
+
+  }
+
+
+
   
