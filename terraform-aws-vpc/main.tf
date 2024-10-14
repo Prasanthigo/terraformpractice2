@@ -68,6 +68,47 @@ resource "aws_route_table" "public" {
     )
 }
 
+#associate public route table with public subnets
+# public route table ---> public-subnet-1a
+# public route table ---> public-subnet-1b
+
+resource "aws_route_table_association" "public" {
+    count = length(var.public_subnet_cidr)
+    subnet_id = element(aws_subnet.public[*].id, count.index)
+    route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table" "private" {
+    vpc_id = aws_vpc.main.id
+    tags = merge(
+        var.common_tags,
+        var.private_route_table_tags
+    )
+}
+
+resource "aws_route_table_association" "private" {
+    count = length(var.private_subnet_cidr)
+    subnet_id = element(aws_subnet.private[*].id, count.index)
+    route_table_id = aws_route_table.private.id
+}
+
+resource "aws_route_table" "database" {
+    vpc_id = aws_vpc.main.id
+    tags = merge(
+        var.common_tags,
+        var.database_route_table_tags
+    )
+}
+
+resource "aws_route_table_association" "database" {
+    count = length(var.private_subnet_cidr)
+    subnet_id = element(aws_subnet.database[*].id, count.index)
+    route_table_id = aws_route_table.database.id
+}
+
+
+
+
 
 
 
