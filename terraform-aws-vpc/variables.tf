@@ -65,6 +65,17 @@ variable "igw_tags" {
     default = {}
   }
 
+  variable "private_route_table_tags" {
+    default = {}
+  }
+
+  variable "database_route_table_tags" {
+    default = {}
+
+  }
+
+
+
 
 
   
