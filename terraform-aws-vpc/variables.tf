@@ -61,6 +61,10 @@ variable "igw_tags" {
 
   }
 
+  variable "public_route_table_tags" {
+    default = {}
+  }
+
 
 
   
