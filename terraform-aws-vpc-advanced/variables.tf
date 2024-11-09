@@ -28,3 +28,19 @@ variable "public_subnet_cidr" {
         error_message = "Please provide 2 public subnet CIDR"
     }
 }
+
+variable "private_subnet_cidr" {
+    type = list
+    validation{
+        condition = length(var.private_subnet_cidr) == 2
+        error_message = "please provide 2 private subnet CIDR"
+    }
+}
+
+variable "database_subnet_cidr" {
+    type = list
+    validation{
+        condition = length(var.database_subnet_cidr) == 2
+        error_message = "please provide 2 database subnet CIDR"
+    }
+}
