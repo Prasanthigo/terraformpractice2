@@ -2,9 +2,7 @@
 #     value = module.vpc.vpc_id #module.name.output variable name
 # }
 
-output "azs" {
-    value = module.vpc.azs
-}
+
 
 output "public_subnet_ids" {
     value = local.public_subnet_ids
