@@ -44,3 +44,15 @@ variable "database_subnet_cidr" {
         error_message = "please provide 2 database subnet CIDR"
     }
 }
+
+variable "nat_gateway_tags" {
+    default = {}
+}
+
+variable public_route_table_tags {
+    default = {}
+}
+
+variable private_route_table_tags {
+    default = {}
+}
