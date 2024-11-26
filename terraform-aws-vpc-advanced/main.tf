@@ -122,7 +122,21 @@ resource "aws_route_table" "private" {
         var.private_route_table_tags
     )
  }
-
+resource "aws_vpc_peering_connection" "peering" {
+    count = var.is_peering_reguired ? 1 : 0
+  #peer_owner_id = var.peer_owner_id
+  peer_vpc_id   = aws_vpc.main.id #accepter  
+  vpc_id        = var.requester_vpc_id #requestor
+  auto_accept = true
+  tags = merge(
+    {
+        Name = "VPC Peering between Default and ${var.project_name}"
+    },
+    var.common_tags
+  )
+    
+  
+}
 
 
 
