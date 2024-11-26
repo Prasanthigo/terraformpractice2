@@ -60,3 +60,7 @@ variable "private_route_table_tags" {
 variable "is_peering_reguired" {
     default = false
 } 
+
+variable requester_vpc_id {
+    default = {}
+}
